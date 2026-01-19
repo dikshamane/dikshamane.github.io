@@ -1,0 +1,21 @@
+achievements:
+  - title: Reduced recovery times by 20%.
+  - title: Added units for accident care, quarantine, and infection wards.
+  - title: Upgraded existing facilities.
+  - title: Shelter Capacity - Dogs (75), Cats (65)
+  - title: Homing Permanent residents not fit for release.
+  - title: Expanded to remote areas in and around Pune
+
+statistics:
+  - title: Animals Treated 
+    stat: 5000
+  - title: Years of Service
+    stat: 20
+  - title: Adoptions and re-homing
+    stat: 280
+  - title: Students Reached in Workshops
+    stat: 500
+  - title: Animals rescued
+    stat: 450
+  - title: Emergency rescue missions
+    stat: 25

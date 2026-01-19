@@ -1,0 +1,15 @@
+- name: Home
+  link: 
+- name: About
+  link: about
+- name: Activities
+  link: activities
+- name: Donate
+  link: donate
+  highlight: true
+- name: Adopt
+  link: adopt
+- name: Volunteer
+  link: volunteer
+- name: Contact
+  link: contact
