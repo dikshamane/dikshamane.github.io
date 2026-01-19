@@ -44,19 +44,21 @@
                 <a href="{{ '/volunteer' | relative_url }}" class="nav-item nav-link{% if page.url contains '/volunteer' %} active{% endif %}">Volunteer</a>
                 <a href="{{ '/blog.html' | relative_url }}" class="nav-item nav-link{% if page.url contains '/blog' %} active{% endif %}">Blog</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Important Forms</a>
                     <div class="dropdown-menu">
-                        <a href="single.html" class="dropdown-item">Detail Page</a>
-                        <a href="service.html" class="dropdown-item">What We Do</a>
-                        <a href="team.html" class="dropdown-item">Meet The Team</a>
-                        <a href="donate.html" class="dropdown-item">Donate Now</a>
-                        <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
+                        <a href="{{site.data.commonlinks.volunteerForm}}" class="dropdown-item" target="_blank">Become A Volunteer</a>
+                        <a href="{{site.data.commonlinks.enquiryForm}}" class="dropdown-item" target="_blank">Enquiry Form</a>
+                        <a href="{{site.data.commonlinks.surgicalConsentForm}}" class="dropdown-item" target="_blank">Surgical Consent Form</a>
+                        <a href="{{site.data.commonlinks.feedbackForm}}" class="dropdown-item" target="_blank">Feedback Form</a>
                     </div>
                 </div>
+                
                 <a href="{{ '/contact.html' | relative_url }}" class="nav-item nav-link{% if page.url contains '/contact' %} active{% endif %}">Contact</a>
             </div>
         </div>
     </div>
+    
 </div>
+
 <!-- Nav Bar End -->
  
