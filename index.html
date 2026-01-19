@@ -83,7 +83,7 @@ title: Home
         
 
         <!-- About Start -->
-        <div class="about">
+        <div class="about" >
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
@@ -137,29 +137,11 @@ title: Home
 
 
         <!-- Service Start -->
-        <div class="service">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>What We Do?</p>
-                    <h2>Our Services at the center</h2>
-                </div>
-                <div class="row">
-                  {% for item in site.data.mission %}
-		<div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="{{ item.icon }}"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-		{% endfor %}
-                </div>
-            </div>
-        </div>
+         <div class="service">
+
+            {% include services.html %}
+         </div>
+        
         <!-- Service End -->
         
         
@@ -185,9 +167,9 @@ title: Home
         <!-- Facts End -->
         
         
-        <!-- Causes Start 
+        <!-- Causes Start -->
         <div class="causes">
-            <div class="container">
+            <!--<div class="container">
                 <div class="section-header text-center">
                     <p>Popular Causes</p>
                     <h2>Let's know about charity causes around the world</h2>
@@ -290,9 +272,8 @@ title: Home
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        -- Causes End -->
+            </div>-->
+        <!-- Causes End -->
         
         
         <!-- Donate Start -->
@@ -524,32 +505,12 @@ title: Home
             </div>
         </div>
         <!-- Volunteer End -->
-         <!--Voluteer Types start
-         <div class="causes" id="volunteer-types">
-                        <div class="container">
-                                <div class="section-header text-center">
-                                        <p>How can you help?</p>
-                                        <h2>Choose from a variety of volunteer opportunities</h2>
-                                </div>
-                                <div class="row">
-                                    {% for item in site.data.volunteer.list %}
-                                        {% assign index  = '/img/causes-' | append: forloop.index | append: '.jpg' %}
-                                    <div class="col-lg-6 col-md-12 mb-4" onclick="window.open('{{site.data.commonlinks.volunteerForm}}')">
-                                        <div class="card h-100 causes-item">
-                                            <img src="{{ index | relative_url }}" class="card-img-top" alt="Image">
-                                            <div class="card-body">
-                                                <div class="causes-text">
-                                                    <h3>{{item.title}}</h3>
-                                                    <p>{{item.description}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                        </div>
+         <!--Voluteer Types start-->
+         <div class="causes" id="volunteerTypes">
+                        {% include volunteerTypes.html %}
         </div>
-         --Volunteer types end-->
+        </div>
+         <!--Volunteer types end-->
         
         
         <!-- Testimonial Start -->
