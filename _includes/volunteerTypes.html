@@ -1,13 +1,8 @@
-  <div class="container">
-      <div class="section-header text-center">
-          <p>How can you help?</p>
-          <h2>Choose from a variety of volunteer opportunities</h2>
-      </div>
-      <div class="row">
+   <div class="row">
           {% for item in site.data.volunteer.list %}
               {% assign index  = '/img/causes-' | append: forloop.index | append: '.jpg' %}
           <div class="col-lg-6 col-md-12 mb-4" onclick="window.open('{{site.data.commonlinks.volunteerForm}}')">
-              <div class="card h-100 causes-item">
+              <div class="card h-100 causes-item" style="cursor:pointer">
                   <!--<img src="{{ index | relative_url }}" class="card-img-top" alt="Image">-->
                   <div class="card-body">
                       <div class="causes-text">
@@ -19,4 +14,3 @@
           </div>
           {% endfor %}
       </div>
-  </div>
