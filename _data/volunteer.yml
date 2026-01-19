@@ -1,12 +1,13 @@
-- title: Support
-  description: Veterinary services, administrative support, website development, promotional activities, rescue operation logistics, dog walking, kennel cleaning, and professional/technical services.
-- title: In-Kind Donations
-  description: Food, medical supplies, blankets, crates, grooming supplies, toys, cleaning supplies, office supplies, and printing materials.
-- title: Sponsorship Programs
-  description: Regular contributions to support the care of a specific dog with updates and interactions.
-- title: Fundraising Activities
-  description: Encourage donations and organize or participate in adoption drives.
-- title: Vehicle Donations
-  description: Donate a vehicle to be used as a dog ambulance.
-- title: Monetary Donations
-  description: Regular or one-time cash contributions to cover routine expenses. Donations are eligible for tax benefits under section 80G.
+list:
+  - title: Support
+    description: Veterinary services, administrative support, website development, promotional activities, rescue operation logistics, dog walking, kennel cleaning, and professional/technical services.
+  - title: In-Kind Donations
+    description: Food, medical supplies, blankets, crates, grooming supplies, toys, cleaning supplies, office supplies, and printing materials.
+  - title: Sponsorship Programs
+    description: Regular contributions to support the care of a specific dog with updates and interactions.
+  - title: Fundraising Activities
+    description: Encourage donations and organize or participate in adoption drives.
+  - title: Vehicle Donations
+    description: Donate a vehicle to be used as a dog ambulance.
+  - title: Monetary Donations
+    description: Regular or one-time cash contributions to cover routine expenses. Donations are eligible for tax benefits under section 80G.
