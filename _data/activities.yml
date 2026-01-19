@@ -1,12 +1,24 @@
-- name: Admit and care for stray dogs and cats needing medical attention.
-- name: Veterinary care until animals are fit to return to their habitat.
-- name: Post-operative care and fostering.
-- name: Provide hostel facilities.
-- name: Educate on animal cruelty laws and first aid.
-- name: Monitor general health of stray animals.
-- name: Facilitate adoptions.
-- name: Perform surgeries.
-- name: Preventive vaccination and deworming.
-- name: Maintain a clean and hygienic environment.
-- name: Conduct awareness, educational, and vaccination camps.
-- name: Offer first aid training programs.
+other_activities:
+  - name: Admit and care for stray dogs and cats needing medical attention.
+  - name: Veterinary care until animals are fit to return to their habitat.
+  - name: Post-operative care and fostering.
+  - name: Provide hostel facilities.
+  - name: Educate on animal cruelty laws and first aid.
+  - name: Monitor general health of stray animals.
+  - name: Facilitate adoptions.
+  - name: Perform surgeries.
+  - name: Preventive vaccination and deworming.
+  - name: Maintain a clean and hygienic environment.
+  - name: Conduct awareness, educational, and vaccination camps.
+  - name: Offer first aid training programs.
+
+activity:
+  - title: Unbiased care - Paraplegic Needs
+    description: We have never prioritized need of care based on condition. We try to do everything in our capacity to give the utmost care to all animals.
+    image: /assets/images/paraplegic.jpeg
+  - title: Road accidents - Sutures and support
+    description: We are able to provide immediate necessary support for road accident stray animals and provide them a care facility until recovery.
+    image: assets/images/cat_surgery.jpeg
+  - title: Comfortable stay- Home for unfit
+    description: We are homing animals who are unfit for release because of various conditions. No discrimination is done and full care is rendered.
+    image: assets/images/home_animals.jpeg
