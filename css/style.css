@@ -1,3 +1,30 @@
+/* Always hide dropdown by default */
+.navbar .dropdown-menu {
+    display: none;
+}
+
+/* Show dropdown on click (when .show is present) for mobile */
+.navbar .dropdown.show .dropdown-menu {
+    display: block;
+}
+
+@media (min-width: 992px) {
+    /* On desktop, show dropdown on hover */
+    .navbar .dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+/* Fix for Bootstrap dropdown menu not showing */
+@media (min-width: 992px) {
+    .navbar .dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+.navbar .dropdown.show .dropdown-menu {
+    display: block;
+}
 /*******************************/
 /********* General CSS *********/
 /*******************************/
@@ -277,12 +304,7 @@ a:focus {
     transition: none;
 }
 
-.navbar .dropdown-menu {
-    margin-top: 0;
-    border: 0;
-    border-radius: 0;
-    background: #f8f9fa;
-}
+
 
 @media (min-width: 992px) {
     .navbar {
@@ -321,10 +343,8 @@ a:focus {
     .navbar a.nav-link {
         padding: 5px;
     }
+ 
     
-    .navbar .dropdown-menu {
-        box-shadow: none;
-    }
 }
 
 
