@@ -1,0 +1,37 @@
+---
+layout: default
+title: Our Team
+---
+
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Our Team</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team section-padding">
+  <div class="container">
+    <div class="section-header text-center">
+      <p>Meet Our Team</p>
+      <h2>Dedicated Members</h2>
+    </div>
+    <div class="row">
+      {% for member in site.data.team.list %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 text-center">
+           <img src="{{ member.image }}" class="card-img-top" alt="{{ member.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ member.name }}</h5>
+            <p class="card-text text-muted">{{ member.designation }}</p>
+             <p class="card-text">{{ member.profile }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

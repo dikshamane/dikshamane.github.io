@@ -388,76 +388,92 @@ title: Home
                 <div class="section-header text-center">
                     <p>Meet Our Team</p>
                     <h2>Awesome People behind our Mission</h2>
+                    <small><a href="/teams.html">View All</a></small>
                 </div>
                 <div class="row">
+                    {% for item in site.data.team.list %}
                     <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
+                        <div class="team-item team-card-modal-trigger" style="cursor:pointer;" 
+                            data-name="{{ item.name | escape }}"
+                            data-designation="{{ item.designation | escape }}"
+                            data-profile="{{ item.profile | escape }}"
+                            data-image="{{ item.image | relative_url }}">
                             <div class="team-img">
-                                <img src="{{ '/img/team-1.jpg' | relative_url }}" alt="Team Image">
+                                <img src="{{ item.image  | relative_url }}" alt="Team Image">
                             </div>
                             <div class="team-text">
-                                <h2>Donald John</h2>
-                                <p>Founder & CEO</p>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                                <h2>{{ item.name }}</h2>
+                                <p>{{ item.designation }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{ '/img/team-2.jpg' | relative_url }}" alt="Team Image">
+                                    <!-- Team Member Modal -->
+                                    <div class="modal fade custom-team-modal" id="teamMemberModal" tabindex="-1" aria-labelledby="teamMemberModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content position-relative">
+                                                 
+                                 <div class="modal-header">
+                                <h5  class="modal-title w-100 text-center" id="teamMemberModalLabel">Member Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="team-text">
-                                <h2>Adam Phillips</h2>
-                                <p>Chef Executive</p>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{ '/img/team-3.jpg' | relative_url }}" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Thomas Olsen</h2>
-                                <p>Chef Advisor</p>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{ '/img/team-4.jpg' | relative_url }}" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>James Alien</h2>
-                                <p>Advisor</p>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                                <div class="modal-body pt-0">
+                                                    <div class="card h-100 text-center border-0">
+                                                        <img id="modalMemberImage" src="" class="card-img-top mx-auto" style="width:120px; height:120px; object-fit:cover; border-radius:50%;" alt="Team Member">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title" id="modalMemberName"></h5>
+                                                            <p class="card-text text-muted" id="modalMemberDesignation"></p>
+                                                            <p class="card-text" id="modalMemberProfile"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <style>
+                        /* Transparent modal background */
+                        .modal.custom-team-modal .modal-backdrop,
+                        .modal-backdrop.show {
+                            opacity: 0 !important;
+                            background: transparent !important;
+                        }
+                        /* Custom close button */
+                        .btn-close-custom {
+                            color: #333;
+                            background: none;
+                            border: none;
+                            font-size: 2rem;
+                            opacity: 0.7;
+                            transition: opacity 0.2s;
+                        }
+                        .btn-close-custom:hover {
+                            opacity: 1;
+                            color: #000;
+                            text-decoration: none;
+                        }
+                    </style>
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var modal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
+                        document.querySelectorAll('.team-card-modal-trigger').forEach(function(card) {
+                            card.addEventListener('click', function() {
+                                var name = card.getAttribute('data-name');
+                                var designation = card.getAttribute('data-designation');
+                                var profile = card.getAttribute('data-profile');
+                                var image = card.getAttribute('data-image');
+                                // document.getElementById('teamMemberModalLabel').textContent = name;
+                                document.getElementById('modalMemberName').textContent = name;
+                                document.getElementById('modalMemberDesignation').textContent = designation;
+                                document.getElementById('modalMemberProfile').innerHTML = profile;
+                                document.getElementById('modalMemberImage').src = image;
+                                document.getElementById('modalMemberImage').alt = name;
+                                modal.show();
+                            });
+                        });
+                    });
+                    </script>
+                    {% endfor %}
                 </div>
             </div>
         </div>
