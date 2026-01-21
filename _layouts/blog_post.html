@@ -1,0 +1,163 @@
+---
+layout: default
+---
+
+<!-- Page Header (reuse default layout's header/nav/footer) -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>{{ page.title }}</h2>
+      </div>
+      <div class="col-12">
+        <a href="/index.html">Home</a>
+        <a href="/blogs.html">Blog</a>
+        <span>{{ page.title }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="single">
+  <div class="container">
+    <div class="row">
+      <!-- Main Blog Content -->
+      <div class="col-lg-8">
+        <div class="single-content">
+          {% if page.image %}
+            <div class="single-img">
+              <img src="{{ page.image }}" class="img-fluid mb-4" alt="{{ page.title }}">
+            </div>
+          {% endif %}
+          <div class="single-meta">
+            <span><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+            <span><i class="fa fa-user"></i> {{ page.author | default: "Admin" }}</span>
+          </div>
+          <h2 class="single-title">{{ page.title }}</h2>
+          <div class="content">
+            {{ content }}
+          </div>
+        </div>
+        <!-- Tags -->
+        {% if page.tags %}
+        <div class="single-tags">
+          <span>Tags:</span>
+          {% for tag in page.tags %}
+            <a href="/tags/{{ tag }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Author Bio -->
+        <div class="single-bio">
+          <div class="single-bio-img">
+            <img src="/img/user.jpg" alt="Author" />
+          </div>
+          <div class="single-bio-text">
+            <h3>{{ page.author | default: "Admin" }}</h3>
+            <p>Animal Farm Rescue Center team member.</p>
+          </div>
+        </div>
+        <!-- Related Posts -->
+        <div class="single-related">
+          <h2>Related Posts</h2>
+          <div class="row">
+            {% assign related_posts = site.posts | where_exp: "post", "post.tags contains page.tags[0] and post.url != page.url" | limit:3 %}
+            {% for post in related_posts %}
+            <div class="col-md-4">
+              <div class="related-item">
+                <div class="related-img">
+                  <img src="{{ post.image | default: '/img/blog-1.jpg' }}" alt="{{ post.title }}" />
+                </div>
+                <div class="related-text">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  <div class="related-meta">
+                    <span><i class="fa fa-user"></i> {{ post.author | default: "Admin" }}</span>
+                    <span><i class="fa fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Comments Placeholder -->
+        <div class="single-comment">
+          <h2>Comments</h2>
+          <p>Comments functionality coming soon.</p>
+        </div>
+        <div class="comment-form">
+          <h2>Leave a comment</h2>
+          <form>
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Post Comment" class="btn btn-custom">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget">
+            <div class="search-widget">
+              <form>
+                <input class="form-control" type="text" placeholder="Search Keyword">
+                <button class="btn"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h2 class="widget-title">Recent Posts</h2>
+            <div class="recent-post">
+              {% for post in site.posts limit:5 %}
+              <div class="post-item">
+                <div class="post-img">
+                  <img src="{{ post.image | default: '/img/blog-1.jpg' }}" alt="{{ post.title }}" />
+                </div>
+                <div class="post-text">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  <div class="post-meta">
+                    <span><i class="fa fa-user"></i> {{ post.author | default: "Admin" }}</span>
+                    <span><i class="fa fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h2 class="widget-title">Categories</h2>
+            <div class="category-widget">
+              <ul>
+                {% assign categories = site.posts | map: 'categories' | uniq %}
+                {% for category in categories %}
+                  <li><a href="/categories/{{ category }}">{{ category }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h2 class="widget-title">Tags Cloud</h2>
+            <div class="tag-widget">
+              {% assign tags = site.posts | map: 'tags' | uniq %}
+              {% for tag in tags %}
+                <a href="/tags/{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
