@@ -1113,18 +1113,19 @@ a:focus {
 .team .team-text {
     position: absolute;
     width: calc(100% - 40px);
-    height: 96px;
+    height: 75px;
     bottom: 0;
     left: 20px;
-    padding: 22px 0;
+    padding: 10px 0;
     text-align: center;
     background: #ffffff;
     transition: .3s;
     overflow: hidden;
+    font-size:small;
 }
 
 .team .team-text h2 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     margin-bottom: 10px;
 }
