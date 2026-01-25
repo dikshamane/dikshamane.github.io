@@ -177,5 +177,12 @@
         }
     });
     
+    // Disable auto sliding for newBootstrapBanner
+    $(document).ready(function () {
+        $('#newBootstrapBanner').carousel({
+            interval: false,
+            pause: true
+        });
+    });
 })(jQuery);
 

@@ -26,31 +26,24 @@ permalink: /volunteer
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="volunteer-form">
-                    <form>
-                        <div class="control-group">
-                            <input type="text" class="form-control" placeholder="Name" required="required" />
-                        </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control" placeholder="Email" required="required" />
-                        </div>
-                        <div class="control-group">
-                            <textarea class="form-control" placeholder="Why you want to become a volunteer?" required="required"></textarea>
-                        </div>
-                        <div>
-                            <button class="btn btn-custom" type="submit">Become a volunteer</button>
-                        </div>
-                    </form>
+                     <!--open google form on click -->
+                    <div>
+                        <button class="btn btn-custom"
+                            onclick="window.open('{{ site.data.commonlinks.volunteerForm }}')" type="submit">Become a
+                            Volunteer</button>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="volunteer-content">
                     <div class="section-header">
                         <p>Become A Volunteer</p>
-                        <h2>Let’s make a difference in the lives of others</h2>
+                        <h2>Let’s make a difference !</h2>
                     </div>
                     <div class="volunteer-text">
                         <p>
-                            Join our team and help us care for animals in need. Whether you can foster, help at events, or support our daily work, your time makes a difference!
+                            Join our team and help us care for animals in need. Whether you can foster, help at events,
+                            or support our daily work, your time makes a difference!
                         </p>
                     </div>
                 </div>
@@ -59,47 +52,15 @@ permalink: /volunteer
     </div>
 </div>
 <!-- Volunteer End -->
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>Volunteer</h2>
-            </div>
-            <div class="col-12">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="#">Volunteer</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
-        
-        
-        <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Volunteer</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Volunteer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page Header End -->
-        
-        
+
 <!-- Volunteer Start -->
 <div class="container">
-    <div class="volunteer" data-parallax="scroll" data-image-src="{{ '/assets/images/volunteeringBW.jpeg' | relative_url }}">
+    <div class="volunteer" data-parallax="scroll"
+        data-image-src="{{ '/assets/images/volunteeringBW.jpeg' | relative_url }}">
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="volunteer-form">
-                   <!-- <form>
+                    <!-- <form>
                         <div class="control-group">
                             <input type="text" class="form-control" placeholder="Name" required="required" />
                         </div>
@@ -113,10 +74,22 @@ permalink: /volunteer
                             <button class="btn btn-custom" type="submit">Become a volunteer</button>
                         </div>
                     </form>-->
-                    <!--open google form on click -->
-                                <div>
-                                    <button class="btn btn-custom" onclick="window.open('{{ site.data.commonlinks.volunteerForm }}')" type="submit">Become a Volunteer</button>
-                                </div>
+                    <!--open google form on click --
+                    <div>
+                        <button class="btn btn-custom"
+                            onclick="window.open('{{ site.data.commonlinks.volunteerForm }}')" type="submit">Become a
+                            Volunteer</button>
+                    </div>-->
+                    <div style="padding:5px">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-warning"> Our Challenges</li>
+                            {% for item in site.data.challenges %}
+                            <li class="list-group-item">{{item.title}}</li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -126,27 +99,43 @@ permalink: /volunteer
                         <h2>Volunteer Your Time and Skills</h2>
                     </div>
                     <div class="volunteer-text">
-                        <p>Let’s make a difference in the lives of others. It's not always about money, sometimes it's about making a difference.Choose from a variety of volunteer opportunities </p>
-                           
+                        <p>Let’s make a difference in the lives of others. It's not always about money, sometimes it's
+                            about making a difference.Choose from a variety of volunteer opportunities </p>
+
                     </div>
                 </div>
             </div>
         </div>
-                
-           <!--Voluteer Types start-->
-         <div class="causes" id="volunteerTypes">
-              <div class="container">
-      <!--<div class="section-header text-center">
+
+        <!--Voluteer Types start-->
+        <div class="causes" id="volunteerTypes">
+            <div class="container">
+                <!--<div class="section-header text-center">
           <p>How can you help?</p>
           <h2></h2>
       </div>-->
-                        {% include volunteerTypes.html %}
-                        </div>
-                        </div>
+                {% include volunteerTypes.html %}
+            </div>
         </div>
-        </div>
-         <!--Volunteer types end-->
     </div>
 </div>
+<!--Volunteer types end-->
+<div class="container">
+    <div class="row">
+        
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-5">
+     <img src="{{ '/assets/images/exterior.jpeg' | relative_url }}" class="card-img-top" alt="Image">
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h5 class="card-title">Celebrate Your Special Day At Our Center</h5>
+        <p class="card-text">Calling all animal lovers! 🐶🐱 Celebrate your special day or just unwind at the Animal Farm Rescue Centre, a cozy spot for those who truly love caring for stray dogs and cats. Stay for a day or a couple of nights in a comfortable bungalow with all your basic needs covered. Perfect for birthdays or any occasion! Just bring your own food, and enjoy your time surrounded by furry friends.</p>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <!-- Volunteer End -->
-  
