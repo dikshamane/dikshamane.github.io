@@ -21,3 +21,8 @@ activity:
   - title: Road accidents - Sutures and support
     description: We are able to provide immediate necessary support for road accident stray animals and provide them a care facility until recovery.
     image: assets/images/cat_surgery.jpeg
+
+future_activities:
+  - name: Establish a mobile veterinary clinic.
+  - name: Increase funding and resource partnerships.
+  - name: Enhance volunteer training.

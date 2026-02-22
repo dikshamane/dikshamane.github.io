@@ -10,15 +10,19 @@ title: About
                 <h2>About Us</h2>
             </div>
             <div class="col-12">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="#">About Us</a>
+                <a href="#activities">Activities</a>
+                <a href="#commitments">Commitments</a>                
+                <a href="#facts">Facts</a>                
+                <a href="#team">Team</a>                
+                <a href="#testimonial">Testimonials</a>
+                <a href="#future-goals">Future Goals</a>
             </div>
         </div>
     </div>
 </div>
 <!-- Page Header End -->
 <!-- About Start -->
-<div class="about">
+<div class="about" id="about">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -59,8 +63,8 @@ title: About
     </div>
 </div>
 <!-- About End -->
-<!-- Commitments Start -->
-<div class="about">
+<!-- Activities Start -->
+<div class="about" id="activities">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -68,9 +72,12 @@ title: About
                     <p>For the Needy</p>
                     <h2>Our Activities</h2>
                 </div>
-                <div>
-                    <ul class="list-group-flush">
-                         {% for item in site.data.activities %}
+                <div class="row">
+                    <ul class="list-group-flush" style="padding-left:0px">
+                         {% for item in site.data.activities.activity %}
+                        <li class="list-group-item"> <i class="fas fa-paw pe-3"></i>&nbsp;{{ item.title }}</li>
+                        {% endfor %}
+                         {% for item in site.data.activities.other_activities %}
                         <li class="list-group-item"> <i class="fas fa-paw pe-3"></i>&nbsp;{{ item.name }}</li>
                         {% endfor %}
                     </ul>
@@ -84,9 +91,9 @@ title: About
         </div>
     </div>
 </div>
-<!-- Commitments End -->
-<!--Activities Start    -->
-<div class="team">
+<!-- Activities End -->
+<!--Commitments Start    -->
+<div class="team" id="commitments">
     <div class="container">
                 <div class="section-header text-center">
                     <p>Together, we can build a world where every animal is treated with dignity and kindness.</p>
@@ -104,10 +111,10 @@ title: About
         </div>
     </div>
 </div>
-<!--Activities End-->
+<!--Commitments End-->
 <!-- Facts Start -->
 <!-- Facts Start -->
-        <div class="facts" data-parallax="scroll" data-image-src="{{ '/img/facts.png' | relative_url }}">
+        <div id="facts" class="bgimage facts" data-parallax="scroll" data-image-src="{{ '/img/facts.png' | relative_url }}">
             <div class="container">
                 <div class="row">
                   {% for item in site.data.achievements.statistics %}
@@ -137,156 +144,166 @@ title: About
         <!-- Facts End -->
 <!-- Facts End -->
 
-<!-- Team Start -->
-<div class="team">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Meet Our Team</p>
-            <h2>Awesome guys behind our charity activities</h2>
+        <!-- Team Start -->
+        <div class="team" id="team">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Meet Our Team</p>
+                    <h2>Awesome People behind our Mission</h2>
+                    <small><a href="/teams.html">View All</a></small>
+                </div>
+                <div class="row">
+                    {% for item in site.data.team.list %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item team-card-modal-trigger" style="cursor:pointer;" 
+                            data-name="{{ item.name | escape }}"
+                            data-designation="{{ item.designation | escape }}"
+                            data-profile="{{ item.profile | escape }}"
+                            data-image="{{ item.image | relative_url }}">
+                            <div class="team-img">
+                                <img src="{{ item.image  | relative_url }}" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>{{ item.name }}</h2>
+                                <p>{{ item.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                                    <!-- Team Member Modal -->
+                                    <div class="modal fade custom-team-modal" id="teamMemberModal" tabindex="-1" aria-labelledby="teamMemberModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content position-relative">
+                                                 
+                                 <div class="modal-header">
+                                <h5  class="modal-title w-100 text-center" id="teamMemberModalLabel">Member Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                                <div class="modal-body pt-0">
+                                                    <div class="card h-100 text-center border-0">
+                                                        <img id="modalMemberImage" src="" class="card-img-top mx-auto" style="width:120px; height:120px; object-fit:cover; border-radius:50%;" alt="Team Member">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title" id="modalMemberName"></h5>
+                                                            <p class="card-text text-muted" id="modalMemberDesignation"></p>
+                                                            <p class="card-text" id="modalMemberProfile"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <style>
+                        /* Transparent modal background */
+                        .modal.custom-team-modal .modal-backdrop,
+                        .modal-backdrop.show {
+                            opacity: 0 !important;
+                            background: transparent !important;
+                        }
+                        /* Custom close button */
+                        .btn-close-custom {
+                            color: #333;
+                            background: none;
+                            border: none;
+                            font-size: 2rem;
+                            opacity: 0.7;
+                            transition: opacity 0.2s;
+                        }
+                        .btn-close-custom:hover {
+                            opacity: 1;
+                            color: #000;
+                            text-decoration: none;
+                        }
+                    </style>
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var modal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
+                        document.querySelectorAll('.team-card-modal-trigger').forEach(function(card) {
+                            card.addEventListener('click', function() {
+                                var name = card.getAttribute('data-name');
+                                var designation = card.getAttribute('data-designation');
+                                var profile = card.getAttribute('data-profile');
+                                var image = card.getAttribute('data-image');
+                                // document.getElementById('teamMemberModalLabel').textContent = name;
+                                document.getElementById('modalMemberName').textContent = name;
+                                document.getElementById('modalMemberDesignation').textContent = designation;
+                                document.getElementById('modalMemberProfile').innerHTML = profile;
+                                document.getElementById('modalMemberImage').src = image;
+                                document.getElementById('modalMemberImage').alt = name;
+                                modal.show();
+                            });
+                        });
+                    });
+                    </script>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{ '/img/team-1.jpg' | relative_url }}" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Donald John</h2>
-                        <p>Founder & CEO</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{ '/img/team-2.jpg' | relative_url }}" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Adam Phillips</h2>
-                        <p>Chef Executive</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{ '/img/team-3.jpg' | relative_url }}" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Thomas Olsen</h2>
-                        <p>Chef Advisor</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="{{ '/img/team-4.jpg' | relative_url }}" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>James Alien</h2>
-                        <p>Advisor</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Team End -->
+        <!-- Team End -->
 
-<!-- Testimonial Start -->
-<div class="testimonial">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Testimonial</p>
-            <h2>What people are talking about our charity activities</h2>
+        <!-- Testimonial Start -->
+        <div class="testimonial" id="testimonial">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Testimonial</p>
+                    <h2>What people Say about Us</h2>
+                </div>
+                <div id="testimonialCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div class="carousel-inner">
+                    {% assign feedbacks = site.data.feedback %}
+                        {% if feedbacks.size > 0 %}
+                                        {% for item in feedbacks %}
+                                            <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-8 d-flex align-items-stretch">
+                                                        <div class="card mb-4 w-100">
+                                                            <div class="card-body text-center" id="card-body_{{ forloop.index }}">
+                                                                <h5 class="card-subtitle mb-2 text-muted">{{ item.title }}</h5>
+                                                                <h6 class="card-title">{{ item.name }}</h6>
+                                                                <p class="card-text"><i>{{ item.description }}</i></p>
+                                                                <a href="{{ item.link }}">Read More</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                        {% endif %}
+                  </div>
+                                    <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev" style="width: 50px;">
+                                        <span style="display: inline-block; width: 32px; height: 32px; background: black; border-radius: 50%; text-align: center; line-height: 32px; color: white; font-size: 24px;">
+                                            &#8592;
+                                        </span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next" style="width: 50px;">
+                                        <span style="display: inline-block; width: 32px; height: 32px; background: black; border-radius: 50%; text-align: center; line-height: 32px; color: white; font-size: 24px;">
+                                            &#8594;
+                                        </span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                </div>
+            </div>
         </div>
-        <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="{{ '/img/testimonial-1.jpg' | relative_url }}" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
+                <!-- Testimonial End -->
+<!-- Future goals Start-->
+
+<div class="team" id="future-goals">
+    <div class="container">
+                <div class="section-header text-center">
+                    <p>Our Current Aspirations</p>
+
+                    <h2>Our Future Goals</h2>
                 </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus
-                        tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="{{ '/img/testimonial-2.jpg' | relative_url }}" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus
-                        tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="{{ '/img/testimonial-3.jpg' | relative_url }}" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus
-                        tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="{{ '/img/testimonial-4.jpg' | relative_url }}" alt="Image">
-                    <div class="testimonial-name">
-                        <h3>Person Name</h3>
-                        <p>Profession</p>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus
-                        tortor, auctor id gravid vivera quis
-                    </p>
-                </div>
+        <div class="row">
+            <div  class="col-lg-12">
+                     <ul class="list-group-flush">
+                        {% for item in site.data.activities.future_activities %}
+                        <li class="list-group-item"><h5><strong>{{ item.name }}</strong></h5></li>
+                        {% endfor %} 
+                    </ul>
             </div>
         </div>
     </div>
 </div>
-<!-- Testimonial End -->
+<!-- Future goals End-->
