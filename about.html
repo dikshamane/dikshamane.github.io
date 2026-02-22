@@ -24,51 +24,34 @@ title: About
             <div class="col-lg-6">
                 <div class="about-img" data-parallax="scroll" data-image-src="assets/images/about.jpeg"></div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 aboutContent">
                 <div class="section-header">
                     <p>Learn About Us</p>
-                    <h2>Animal Farm Rescue Center</h2>
+                    <h2>{{ site.data.about.about.title }}</h2>
                 </div>
                 <div class="about-tab">
                     <ul class="nav nav-pills nav-justified">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#tab-content-1">About</a>
+                            <a class="nav-link active" data-toggle="pill" href="#tab-content-about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#tab-content-2">Mission</a>
+                            <a class="nav-link" data-toggle="pill" href="#tab-content-mission">Mission</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#tab-content-3">Vision</a>
+                            <a class="nav-link" data-toggle="pill" href="#tab-content-vision">Vision</a>
                         </li>
                     </ul>
 
                     <div class="tab-content">
-                        <div id="tab-content-1" class="container tab-pane active">
-                            Welcome to Animal Farm Rescue Center, a sanctuary of hope and compassion for our beloved
-                            animal companions. Every day, our dedicated team works tirelessly to rescue, nurture, and
-                            advocate for the rights of animals throughout Pune.<br />
-                            At Animal Farm, we hold a deep belief in the inherent value of every creature. Our mission
-                            is to ensure that every animal receives the love, care, and respect they deserve. We provide
-                            medical assistance, food, shelter, sterilization, vaccination, first aid, and adoption
-                            services to countless stray dogs and cats in need.<br />
-                            Our work is made possible through the unwavering support of our volunteers, donors, and the
-                            community. Together, we strive to create a harmonious coexistence between humans and
-                            animals, promoting awareness, compassion, and positive change.<br />
-                            Thank you for joining us in this noble endeavor. Together, we can make a profound difference
-                            in the lives of animals and build a more compassionate world for all living beings.<br />
-                            <p>Warm regards,</p>
-                            <p class="mb-0">
-                                <em>Dr. Sucheta and Mr. Vishwanathan,</em>
-                                <br />
-                                Animal Farm Rescue Center
-                            </p>
+                        <div id="tab-content-about" class="container tab-pane active">
+                            {{ site.data.about.about.intro | markdownify }}
                         </div>
-                        <div id="tab-content-2" class="container tab-pane fade">
-                            At Animal Farm Rescue Center, our mission is to create a safe and nurturing environment for
-                            stray and distressed animals, ensuring their well-being and advocating for their rights.
+                        <div id="tab-content-mission" class="container tab-pane fade">
+                            {{ site.data.about.mission | markdownify }}
                         </div>
-                        <div id="tab-content-3" class="container tab-pane fade">
-                            ???</div>
+                        <div id="tab-content-vision" class="container tab-pane fade">
+                            {{ site.data.about.vision | markdownify }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +107,7 @@ title: About
 <!--Activities End-->
 <!-- Facts Start -->
 <!-- Facts Start -->
-        <div class="facts" data-parallax="scroll" data-image-src="{{ '/img/facts.jpg' | relative_url }}">
+        <div class="facts" data-parallax="scroll" data-image-src="{{ '/img/facts.png' | relative_url }}">
             <div class="container">
                 <div class="row">
                   {% for item in site.data.achievements.statistics %}

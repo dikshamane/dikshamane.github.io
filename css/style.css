@@ -1,13 +1,15 @@
 /* CSS Variables for color palette */
 :root {
     --banner-bg: #000000;
+    --primary-dark: #20212B;
     --banner-btn-color: #ffffff;
-    --banner-btn-hover-color: #20212B;
+    --banner-btn-hover-color: var(--primary-dark);
     --banner-caption-color: #fff;
     --banner-caption-h2: #ffe082;
     --banner-caption-p: #fffde7;
     --banner-caption-shadow: #111;
     --banner-btn-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    --primary-yellow: #FDBE33;
 }
 /* Custom styles for new Bootstrap banner carousel */
 .custom-banner-carousel {
@@ -153,6 +155,18 @@
         padding: 7px 12px;
     }
 }
+
+.navbar .tagline {
+    padding:0px 15px;
+    color:#FDBE33;
+    font-size: 16px ;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: italic;
+    margin: 0px;
+
+}
+
 /* Always hide dropdown by default */
 .navbar .dropdown-menu {
     display: none;
@@ -207,7 +221,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: #FDBE33;
+    color: var(--primary-yellow);
     outline: none;
     text-decoration: none;
 }
@@ -219,8 +233,8 @@ a:focus {
     font-weight: 500;
     color: #777777;
     border-radius: 0;
-    border: 2px solid #FDBE33;
-    box-shadow: inset 0 0 0 0 #FDBE33;
+    border: 2px solid var(--primary-yellow);
+    box-shadow: inset 0 0 0 0 var(--primary-yellow);
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
@@ -228,7 +242,7 @@ a:focus {
 
 .btn.btn-custom:hover {
     color: #20212B;
-    box-shadow: inset 0 0 0 30px #FDBE33;
+    box-shadow: inset 0 0 0 30px var(--primary-yellow);
 }
 
 .btn:focus,
@@ -281,7 +295,7 @@ a:focus {
     width: 45px;
     height: 45px;
     border: 5px solid #dddddd;
-    border-top: 5px solid #FDBE33;
+    border-top: 5px solid var(--primary-yellow);
     border-radius: 50%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
@@ -455,7 +469,7 @@ a:focus {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    color: #FDBE33;
+    color: var(--primary-yellow);
     transition: none;
 }
 
@@ -834,7 +848,10 @@ a:focus {
     }
 }
 
-
+.bgimage {
+    background-blend-mode: overlay;
+    background-size: cover;
+}
 /*******************************/
 /********** About CSS **********/
 /*******************************/
@@ -967,7 +984,9 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
+    background-blend-mode: overlay;
     background: rgba(0, 0, 0, .5);
+    
 }
 
 .donate .donate-content {
@@ -1048,7 +1067,7 @@ a:focus {
 
 
 /*******************************/
-/********** Causes CSS *********/
+/********** Causes CSS **********/
 /*******************************/
 .causes {
     position: relative;
@@ -2327,3 +2346,7 @@ a:focus {
         text-align: center;
     }
 }
+
+.aboutContent{
+    align-self: baseline;
+  }
